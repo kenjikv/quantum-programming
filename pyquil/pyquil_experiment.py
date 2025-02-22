@@ -3,10 +3,13 @@ from pyquil.gates import H, MEASURE
 from pyquil.api import QuantumComputer
 from pyquil.pyqvm import PyQVM
 import numpy as np
+import time
 
 def main():
     # Crear un programa cuántico
     program = Program()
+
+    start_time = time.time()
 
     # Declarar un registro de memoria clásico donde se almacenarán los resultados de medición
     ro = program.declare("ro", memory_type="BIT", memory_size=1)
@@ -39,9 +42,11 @@ def main():
     # Contar las ocurrencias de los resultados ('0' y '1')
     unique, counts = np.unique(measurements, return_counts=True)
     counts_dict = dict(zip(unique, counts))
+    end_time = time.time()
 
     # Mostrar los resultados de medición en la terminal
     print("Resultados de medición:", counts_dict)
+    print(f"Pyquil: {end_time - start_time:.4f} segundos")
 
 if __name__ == '__main__':
     main()
