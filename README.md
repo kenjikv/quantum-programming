@@ -21,8 +21,8 @@ Cada programa ejecuta una **puerta Hadamard** en un qubit, lo mide y cuenta cuá
 
 Ejecuta el siguiente comando en la terminal:
 ```sh
-pip install qiskit
-python qiskit_experiment.py
+docker build -t qiskit-basicaer .
+docker run --rm qiskit-basicaer
 ```
 
 ---
@@ -32,8 +32,8 @@ python qiskit_experiment.py
 
 Ejecuta el siguiente comando en la terminal:
 ```sh
-pip install cirq
-python cirq_experiment.py
+docker build -t cirq-experiment .
+docker run --rm cirq-experiment
 ```
 
 ---
